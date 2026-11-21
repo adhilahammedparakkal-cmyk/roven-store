@@ -536,11 +536,9 @@
     }
 
     .admin-link {
+      display: none;
       color: var(--text-muted);
       text-decoration: underline;
-      cursor: pointer;
-      background: none;
-      border: none;
       font-size: 0.8rem;
     }
   </style>
@@ -598,7 +596,7 @@
         <strong>ROVEN</strong> — Old Soul. New Style.
       </div>
       <div>
-        <button type="button" class="admin-link" id="open-admin-btn">Owner Dashboard</button>
+        <a href="#owner-roven" class="admin-link" id="open-admin-btn">Owner Dashboard</a>
       </div>
     </div>
   </footer>
@@ -690,6 +688,7 @@
   <script>
     const OWNER_WHATSAPP = "919744108263";
     const ADMIN_PASSWORD = "123roven.com";
+    const OWNER_HASH = "#owner-roven";
 
     const CATEGORIES = ["All", "Shirts", "T-Shirts", "Overshirts", "Trousers", "Accessories"];
 
@@ -751,4 +750,4 @@
         .replace(/'/g, "&#39;");
     }
 
-    function safeImag
+    function safeImageUrl(url) {
