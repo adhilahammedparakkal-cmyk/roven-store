@@ -4,13 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ROVEN — Old Soul. New Style.</title>
-  <meta name="description" content="ROVEN — Old Soul. New Style. Executive menswear collection: shirts, t-shirts, overshirts, trousers, and accessories." />
-  <link rel="canonical" href="https://roven.online/" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --brown: #4B2E1E;
@@ -18,31 +14,19 @@
       --cream: #F5EBD7;
       --cream-soft: #fbf5ea;
       --olive: #556B2F;
-      --olive-light: #6c8540;
       --text-muted: #6e5c52;
-      --border: rgba(75, 46, 30, 0.16);
+      --border: rgba(75, 46, 30, 0.18);
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background-color: var(--cream);
+      background: var(--cream);
       color: var(--brown);
       font-family: 'Plus Jakarta Sans', sans-serif;
       line-height: 1.5;
-      overflow-x: hidden;
     }
+    h1, h2, h3 { font-family: 'Cinzel', serif; letter-spacing: 0.08em; }
 
-    h1, h2, h3, .brand-font {
-      font-family: 'Cinzel', serif;
-      letter-spacing: 0.08em;
-    }
-
-    /* Animated Brand Splash Screen */
+    /* Splash Screen */
     #splash-screen {
       position: fixed;
       inset: 0;
@@ -52,262 +36,82 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      transition: transform 0.85s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.65s ease;
-      animation: autoHideSplash 0.75s ease forwards 3.2s;
+      animation: hideSplash 0.7s ease forwards 2.5s;
     }
-
-    #splash-screen.hide {
-      transform: translateY(-100%);
-      opacity: 0;
-      pointer-events: none;
+    @keyframes hideSplash {
+      to { transform: translateY(-100%); opacity: 0; pointer-events: none; visibility: hidden; }
     }
-
-    @keyframes autoHideSplash {
-      to {
-        transform: translateY(-100%);
-        opacity: 0;
-        pointer-events: none;
-      }
-    }
-
-    .splash-star {
-      width: 34px;
-      height: 34px;
-      fill: var(--olive);
-      animation: pulseStar 1.8s ease-in-out infinite;
-      margin-bottom: 10px;
-    }
-
     .splash-logo {
       font-family: 'Cinzel', serif;
-      font-size: clamp(2.6rem, 8vw, 4.5rem);
+      font-size: 3rem;
       font-weight: 700;
-      color: var(--brown);
       letter-spacing: 0.22em;
-      opacity: 0;
-      transform: translateY(18px);
-      animation: fadeUpReveal 1.0s ease forwards 0.2s;
+      color: var(--brown);
     }
-
-    .splash-tagline {
-      margin-top: 10px;
+    .splash-tag {
       font-size: 0.85rem;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
+      letter-spacing: 0.3em;
       color: var(--olive);
       font-weight: 600;
-      opacity: 0;
-      animation: fadeUpReveal 0.9s ease forwards 0.55s;
-    }
-
-    @keyframes fadeUpReveal {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes pulseStar {
-      0%, 100% { transform: scale(1) rotate(0deg); }
-      50% { transform: scale(1.15) rotate(12deg); }
+      margin-top: 8px;
+      text-transform: uppercase;
     }
 
     /* Header */
     header {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(245, 235, 215, 0.95);
-      backdrop-filter: blur(10px);
+      z-index: 50;
+      background: var(--cream);
       border-bottom: 1px solid var(--border);
-    }
-
-    .nav-container {
-      max-width: 1280px;
-      margin: 0 auto;
       padding: 1rem 1.5rem;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .brand-mark {
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .brand-name {
-      font-family: 'Cinzel', serif;
-      font-size: 1.65rem;
-      font-weight: 700;
-      color: var(--brown);
-      letter-spacing: 0.16em;
-      line-height: 1;
-    }
-
-    .brand-sub {
-      font-size: 0.65rem;
-      letter-spacing: 0.24em;
-      color: var(--olive);
-      text-transform: uppercase;
-      font-weight: 600;
-      margin-top: 4px;
-    }
-
-    .nav-actions {
-      display: flex;
       align-items: center;
-      gap: 0.9rem;
     }
+    .brand-title { font-family: 'Cinzel', serif; font-size: 1.6rem; font-weight: 700; letter-spacing: 0.15em; }
+    .brand-sub { font-size: 0.65rem; letter-spacing: 0.22em; color: var(--olive); font-weight: 600; text-transform: uppercase; }
 
     .btn {
       border: none;
       cursor: pointer;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 500;
-      transition: all 0.22s ease;
-      border-radius: 4px;
-    }
-
-    .btn-primary {
-      background: var(--brown);
-      color: var(--cream);
-      padding: 0.65rem 1.2rem;
-      font-size: 0.85rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .btn-primary:hover {
-      background: var(--brown-dark);
-    }
-
-    .btn-olive {
-      background: var(--olive);
-      color: var(--cream);
-      padding: 0.65rem 1.2rem;
-      font-size: 0.85rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .btn-olive:hover {
-      background: var(--olive-light);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid var(--brown);
-      color: var(--brown);
-      padding: 0.5rem 0.95rem;
-      font-size: 0.82rem;
-    }
-
-    .btn-outline:hover {
-      background: var(--brown);
-      color: var(--cream);
-    }
-
-    .cart-btn {
-      position: relative;
-      background: var(--brown);
-      color: var(--cream);
       padding: 0.6rem 1.1rem;
       border-radius: 4px;
-      font-size: 0.85rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .cart-count {
-      background: var(--olive);
-      color: #fff;
-      font-size: 0.72rem;
       font-weight: 600;
-      padding: 2px 7px;
-      border-radius: 999px;
+      font-size: 0.85rem;
     }
+    .btn-brown { background: var(--brown); color: var(--cream); }
+    .btn-olive { background: var(--olive); color: var(--cream); }
+    .btn-outline { background: transparent; border: 1px solid var(--brown); color: var(--brown); }
 
-    /* Hero Banner */
+    /* Hero */
     .hero {
-      max-width: 1280px;
-      margin: 2rem auto 1rem;
-      padding: 0 1.5rem;
-    }
-
-    .hero-box {
-      background: linear-gradient(120deg, var(--brown) 0%, #3a2215 70%, var(--olive) 140%);
+      margin: 1.5rem;
+      padding: 2.5rem 1.5rem;
+      background: linear-gradient(135deg, var(--brown), #2f1b10);
       color: var(--cream);
       border-radius: 8px;
-      padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 3.5rem);
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      box-shadow: 0 14px 35px rgba(75, 46, 30, 0.14);
     }
+    .hero h1 { font-size: 2rem; margin: 0.5rem 0 1rem; }
 
-    .hero-kicker {
-      color: #d8c7a8;
-      font-size: 0.78rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-    }
-
-    .hero-title {
-      font-size: clamp(1.8rem, 4.5vw, 3.1rem);
-      font-weight: 600;
-      max-width: 720px;
-    }
-
-    .hero-desc {
-      max-width: 580px;
-      color: rgba(245, 235, 215, 0.85);
-      font-size: 0.95rem;
-    }
-
-    /* Category Filter */
-    .categories {
-      max-width: 1280px;
-      margin: 1.8rem auto 1rem;
-      padding: 0 1.5rem;
-      display: flex;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-    }
-
-    .cat-pill {
-      padding: 0.5rem 1.1rem;
-      border-radius: 999px;
+    /* Categories & Grid */
+    .cats { padding: 0 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .cat-btn {
+      padding: 0.45rem 1rem;
+      border-radius: 99px;
       border: 1px solid var(--border);
       background: var(--cream-soft);
       color: var(--brown);
-      font-size: 0.84rem;
       cursor: pointer;
-      transition: 0.2s;
     }
-
-    .cat-pill.active, .cat-pill:hover {
-      background: var(--brown);
-      color: var(--cream);
-      border-color: var(--brown);
-    }
-
-    /* Products Grid */
-    .products-section {
-      max-width: 1280px;
-      margin: 1.2rem auto 4rem;
-      padding: 0 1.5rem;
-    }
+    .cat-btn.active { background: var(--brown); color: var(--cream); }
 
     .grid {
+      padding: 0 1.5rem 3rem;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
-      gap: 1.6rem;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
     }
-
     .card {
       background: var(--cream-soft);
       border: 1px solid var(--border);
@@ -315,445 +119,367 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      position: relative;
     }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(75, 46, 30, 0.08);
+    .card img { width: 100%; height: 260px; object-fit: cover; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; gap: 0.6rem; flex: 1; }
+    .badge-out {
+      position: absolute; top: 10px; left: 10px;
+      background: var(--brown-dark); color: var(--cream);
+      padding: 4px 8px; font-size: 0.72rem; font-weight: 600; border-radius: 3px;
     }
+    .sizes { display: flex; gap: 5px; }
+    .sz { padding: 4px 9px; border: 1px solid var(--border); background: none; cursor: pointer; font-size: 0.75rem; }
+    .sz.sel { background: var(--olive); color: #fff; border-color: var(--olive); }
 
-    .card-img-wrap {
-      position: relative;
-      height: 290px;
-      background: #e9dcc4;
-      overflow: hidden;
-    }
-
-    .card-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .sold-out-badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      background: var(--brown-dark);
-      color: var(--cream);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      padding: 5px 10px;
-      border-radius: 3px;
-      text-transform: uppercase;
-    }
-
-    .card-body {
-      padding: 1.1rem;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      justify-content: space-between;
-      gap: 0.8rem;
-    }
-
-    .card-cat {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--olive);
-      font-weight: 600;
-    }
-
-    .card-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--brown);
-      margin-top: 2px;
-    }
-
-    .card-price {
-      font-weight: 600;
-      font-size: 1rem;
-      color: var(--brown);
-    }
-
-    .sizes {
-      display: flex;
-      gap: 0.4rem;
-      margin-top: 0.3rem;
-    }
-
-    .size-btn {
-      width: 32px;
-      height: 30px;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--brown);
-      font-size: 0.75rem;
-      border-radius: 3px;
-      cursor: pointer;
-    }
-
-    .size-btn.selected {
-      background: var(--olive);
-      color: #fff;
-      border-color: var(--olive);
-    }
-
-    .add-btn {
-      width: 100%;
-      padding: 0.7rem;
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .add-btn:disabled {
-      background: #b8ab98;
-      color: #f5ebd7;
-      cursor: not-allowed;
-    }
-
-    /* Slide-out Cart Drawer */
-    .drawer-backdrop {
+    /* Modals & Drawers */
+    .overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.45);
-      z-index: 200;
-      display: none;
-      justify-content: flex-end;
-    }
-
-    .drawer-backdrop.open {
-      display: flex;
-    }
-
-    .drawer {
-      width: 100%;
-      max-width: 420px;
-      background: var(--cream);
-      height: 100%;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      overflow-y: auto;
-    }
-
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.75rem 0;
-      border-bottom: 1px solid var(--border);
-      gap: 0.75rem;
-    }
-
-    .input-field {
-      width: 100%;
-      padding: 0.65rem 0.8rem;
-      border: 1px solid var(--border);
-      background: var(--cream-soft);
-      border-radius: 4px;
-      font-family: inherit;
-      color: var(--brown);
-      margin-top: 0.4rem;
-    }
-
-    /* Owner Admin Modal */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.55);
-      z-index: 300;
+      background: rgba(0,0,0,0.6);
+      z-index: 500;
       display: none;
       align-items: center;
       justify-content: center;
       padding: 1rem;
     }
-
-    .modal-backdrop.open {
-      display: flex;
-    }
-
-    .modal {
+    .box {
       background: var(--cream);
-      border-radius: 8px;
       width: 100%;
-      max-width: 860px;
+      max-width: 750px;
       max-height: 90vh;
       overflow-y: auto;
-      padding: 1.6rem;
-      border: 1px solid var(--border);
+      padding: 1.5rem;
+      border-radius: 8px;
     }
-
-    table {
+    .inp {
       width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-      font-size: 0.86rem;
+      padding: 0.65rem;
+      margin-top: 0.4rem;
+      border: 1px solid var(--border);
+      background: var(--cream-soft);
+      border-radius: 4px;
     }
-
-    th, td {
-      padding: 0.65rem 0.5rem;
-      border-bottom: 1px solid var(--border);
-      text-align: left;
-    }
-
-    th {
-      background: rgba(75, 46, 30, 0.06);
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.85rem; }
+    th, td { padding: 0.6rem; border-bottom: 1px solid var(--border); text-align: left; }
 
     /* Footer */
     footer {
       border-top: 1px solid var(--border);
-      padding: 2rem 1.5rem;
+      padding: 1.5rem;
       background: var(--cream-soft);
-    }
-
-    .footer-inner {
-      max-width: 1280px;
-      margin: 0 auto;
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      gap: 1rem;
-      font-size: 0.85rem;
-    }
-
-    .admin-link {
-      color: var(--brown);
-      text-decoration: underline;
-      cursor: pointer;
-      background: transparent;
-      border: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      padding: 4px 8px;
-    }
-
-    .admin-link:hover {
-      color: var(--olive);
     }
   </style>
 </head>
 <body>
 
-  <!-- Animated Brand Intro -->
+  <!-- Intro Animation -->
   <div id="splash-screen">
-    <svg class="splash-star" viewBox="0 0 24 24">
-      <path d="M12 1L14.8 9.2L23 12L14.8 14.8L12 23L9.2 14.8L1 12L9.2 9.2L12 1Z"/>
-    </svg>
     <div class="splash-logo">ROVEN</div>
-    <div class="splash-tagline">Old Soul. New Style.</div>
+    <div class="splash-tag">Old Soul. New Style.</div>
   </div>
 
   <!-- Header -->
   <header>
-    <div class="nav-container">
-      <div class="brand-mark" onclick="filterCategory('All')">
-        <span class="brand-name">ROVEN</span>
-        <span class="brand-sub">Old Soul. New Style.</span>
-      </div>
-      <div class="nav-actions">
-        <button type="button" class="cart-btn" onclick="toggleCart(true)">
-          <span>Bag</span>
-          <span class="cart-count" id="cart-count">0</span>
-        </button>
-      </div>
+    <div>
+      <div class="brand-title">ROVEN</div>
+      <div class="brand-sub">Old Soul. New Style.</div>
     </div>
+    <button class="btn btn-brown" onclick="openCart()">Bag (<span id="bag-count">0</span>)</button>
   </header>
 
   <!-- Hero -->
-  <section class="hero">
-    <div class="hero-box">
-      <span class="hero-kicker">Executive Menswear Collection</span>
-      <h1 class="hero-title">Timeless Silhouettes Crafted for Modern Presence.</h1>
-      <p class="hero-desc">
-        Refined shirts, structured overshirts, tailored trousers, and everyday essentials designed in earthy tones with understated character.
-      </p>
-    </div>
-  </section>
+  <div class="hero">
+    <div style="font-size:0.75rem; letter-spacing:0.2em; color:#d8c7a8;">EXECUTIVE MENSWEAR COLLECTION</div>
+    <h1>Timeless Silhouettes Crafted for Modern Presence.</h1>
+    <p style="font-size:0.9rem; opacity:0.9;">Refined shirts, structured overshirts, tailored trousers, and everyday essentials.</p>
+  </div>
 
   <!-- Categories -->
-  <div class="categories" id="category-bar"></div>
+  <div class="cats" id="cat-list"></div>
 
   <!-- Products -->
-  <main class="products-section">
-    <div class="grid" id="products-grid"></div>
-  </main>
+  <div class="grid" id="prod-grid"></div>
 
   <!-- Footer -->
   <footer>
-    <div class="footer-inner">
-      <div>
-        <strong>ROVEN</strong> — Old Soul. New Style.
-      </div>
-      <div>
-        <button type="button" class="admin-link" id="open-admin-btn">Owner Dashboard</button>
-      </div>
-    </div>
+    <div><strong>ROVEN</strong> — Old Soul. New Style.</div>
+    <button class="btn btn-outline" onclick="openOwner()">Owner Dashboard</button>
   </footer>
 
-  <!-- Shopping Bag Drawer -->
-  <div class="drawer-backdrop" id="cart-drawer">
-    <div class="drawer">
-      <div>
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
-          <h2 style="font-size:1.25rem;">Your Bag</h2>
-          <button type="button" class="btn btn-outline" id="close-cart-btn">Close</button>
-        </div>
-        <div id="cart-items"></div>
+  <!-- Cart Modal -->
+  <div class="overlay" id="cart-modal">
+    <div class="box" style="max-width:420px;">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h2>Your Bag</h2>
+        <button class="btn btn-outline" onclick="closeCart()">Close</button>
       </div>
-
-      <div id="checkout-area" style="margin-top:1.5rem; border-top:1px solid var(--border); padding-top:1rem;">
-        <div style="display:flex; justify-content:space-between; font-weight:600; font-size:1.05rem; margin-bottom:1rem;">
-          <span>Total</span>
-          <span id="cart-total">&#8377;0</span>
-        </div>
-        <label for="cust-name" style="font-size:0.8rem; font-weight:500;">Full Name</label>
-        <input type="text" id="cust-name" class="input-field" placeholder="Enter your name" autocomplete="name" />
-
-        <label for="cust-phone" style="font-size:0.8rem; font-weight:500; display:block; margin-top:0.7rem;">Phone Number</label>
-        <input type="tel" id="cust-phone" class="input-field" placeholder="10-digit mobile number" autocomplete="tel" />
-
-        <label for="cust-address" style="font-size:0.8rem; font-weight:500; display:block; margin-top:0.7rem;">Delivery Address</label>
-        <textarea id="cust-address" rows="2" class="input-field" placeholder="House / Street / City / Pincode" autocomplete="street-address"></textarea>
-
-        <button type="button" class="btn btn-olive" style="width:100%; margin-top:1rem; padding:0.85rem;" id="whatsapp-order-btn">
-          Order via WhatsApp
-        </button>
-      </div>
+      <div id="bag-items" style="margin:1rem 0;"></div>
+      <div style="font-weight:700; margin-bottom:0.8rem;">Total: ₹<span id="bag-total">0</span></div>
+      <input type="text" id="c-name" class="inp" placeholder="Your Full Name" />
+      <input type="tel" id="c-phone" class="inp" placeholder="Mobile Number" />
+      <textarea id="c-addr" class="inp" rows="2" placeholder="Delivery Address"></textarea>
+      <button class="btn btn-olive" style="width:100%; margin-top:1rem;" onclick="sendWhatsApp()">Order via WhatsApp</button>
     </div>
   </div>
 
-  <!-- Owner Inventory & Sales Modal -->
-  <div class="modal-backdrop" id="admin-modal">
-    <div class="modal">
+  <!-- Owner Modal -->
+  <div class="overlay" id="owner-modal">
+    <div class="box">
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <h2 style="font-size:1.25rem;">ROVEN Owner Inventory &amp; Sales</h2>
-        <button type="button" class="btn btn-outline" id="close-admin-btn">Close</button>
+        <h2>Owner Dashboard</h2>
+        <button class="btn btn-outline" onclick="closeOwner()">Close</button>
       </div>
 
-      <!-- Login Box -->
-      <div id="admin-login" style="margin-top:1.5rem; max-width:360px;">
-        <label for="admin-pass" style="font-size:0.85rem;">Enter Owner Password</label>
-        <input type="password" id="admin-pass" class="input-field" placeholder="Password" autocomplete="current-password" />
-        <button type="button" class="btn btn-primary" style="margin-top:0.8rem;" id="login-admin-btn">Unlock Dashboard</button>
+      <div id="login-box" style="margin-top:1.2rem;">
+        <label>Enter Password:</label>
+        <input type="password" id="o-pass" class="inp" placeholder="Password" />
+        <button class="btn btn-brown" style="margin-top:0.8rem;" onclick="checkOwner()">Login</button>
       </div>
 
-      <!-- Dashboard Content -->
-      <div id="admin-panel" style="display:none; margin-top:1.2rem;">
+      <div id="dash-box" style="display:none; margin-top:1.2rem;">
         <div style="background:var(--cream-soft); padding:1rem; border-radius:6px; border:1px solid var(--border);">
-          <h3 style="font-size:0.95rem; margin-bottom:0.7rem;">Add New Product</h3>
-          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap:0.7rem;">
-            <input type="text" id="new-name" class="input-field" placeholder="Product Name" />
-            <select id="new-cat" class="input-field">
-              <option value="Shirts">Shirts</option>
-              <option value="T-Shirts">T-Shirts</option>
-              <option value="Overshirts">Overshirts</option>
-              <option value="Trousers">Trousers</option>
-              <option value="Accessories">Accessories</option>
-            </select>
-            <input type="number" id="new-price" class="input-field" placeholder="Price (&#8377;)" min="0" />
-            <input type="number" id="new-stock" class="input-field" placeholder="Initial Stock" min="0" />
-            <input type="text" id="new-img" class="input-field" placeholder="Image URL (optional)" />
-          </div>
-          <button type="button" class="btn btn-olive" style="margin-top:0.8rem;" id="add-product-btn">+ Add Product</button>
+          <h3>Add Product</h3>
+          <input type="text" id="p-name" class="inp" placeholder="Product Name" />
+          <select id="p-cat" class="inp">
+            <option>Shirts</option>
+            <option>T-Shirts</option>
+            <option>Overshirts</option>
+            <option>Trousers</option>
+            <option>Accessories</option>
+          </select>
+          <input type="number" id="p-price" class="inp" placeholder="Price (₹)" />
+          <input type="number" id="p-stock" class="inp" placeholder="Stock Quantity" />
+          <input type="text" id="p-img" class="inp" placeholder="Image URL (Optional)" />
+          <button class="btn btn-olive" style="margin-top:0.8rem;" onclick="createProduct()">+ Add Item</button>
         </div>
 
         <table>
           <thead>
             <tr>
-              <th>Product</th>
-              <th>Category</th>
+              <th>Item</th>
               <th>Price</th>
               <th>Sold</th>
-              <th>Remaining</th>
-              <th>Adjust / Remove</th>
+              <th>Left</th>
+              <th>Action</th>
             </tr>
           </thead>
-          <tbody id="admin-table-body"></tbody>
+          <tbody id="owner-table"></tbody>
         </table>
       </div>
     </div>
   </div>
 
   <script>
-    const OWNER_WHATSAPP = "919744108263";
-    const ADMIN_PASSWORD = "123roven.com";
+    var WHATSAPP_NO = "919744108263";
+    var OWNER_PASS = "123roven.com";
+    var activeCat = "All";
+    var sizes = {};
+    var bag = [];
 
-    const CATEGORIES = ["All", "Shirts", "T-Shirts", "Overshirts", "Trousers", "Accessories"];
-
-    const DEFAULT_PRODUCTS = [
-      {
-        id: 1,
-        name: "Olive Utility Overshirt",
-        category: "Overshirts",
-        price: 2499,
-        stock: 8,
-        sold: 4,
-        img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 2,
-        name: "Espresso Linen Shirt",
-        category: "Shirts",
-        price: 1899,
-        stock: 0,
-        sold: 10,
-        img: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 3,
-        name: "Sandstone Heavyweight Tee",
-        category: "T-Shirts",
-        price: 1199,
-        stock: 15,
-        sold: 6,
-        img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 4,
-        name: "Pleated Charcoal Trouser",
-        category: "Trousers",
-        price: 2299,
-        stock: 5,
-        sold: 3,
-        img: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 5,
-        name: "Classic Leather Cap",
-        category: "Accessories",
-        price: 899,
-        stock: 7,
-        sold: 2,
-        img: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=600&q=80"
-      }
+    var items = JSON.parse(localStorage.getItem("roven_items")) || [
+      { id: 1, name: "Olive Utility Overshirt", cat: "Overshirts", price: 2499, stock: 8, sold: 4, img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80" },
+      { id: 2, name: "Espresso Linen Shirt", cat: "Shirts", price: 1899, stock: 0, sold: 10, img: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=600&q=80" },
+      { id: 3, name: "Sandstone Heavy Tee", cat: "T-Shirts", price: 1199, stock: 12, sold: 5, img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" }
     ];
 
-    function escapeHTML(str) {
-      return String(str || "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#39;");
+    function save() {
+      localStorage.setItem("roven_items", JSON.stringify(items));
     }
 
-    function safeImageUrl(url) {
-      const fallback = "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?auto=format&fit=crop&w=600&q=80";
-      if (!url) return fallback;
-      const trimmed = String(url).trim();
-      if (
+    function drawCats() {
+      var cats = ["All", "Shirts", "T-Shirts", "Overshirts", "Trousers", "Accessories"];
+      var html = "";
+      for (var i = 0; i < cats.length; i++) {
+        var c = cats[i];
+        html += '<button class="cat-btn ' + (activeCat === c ? 'active' : '') + '" onclick="setCat(\'' + c + '\')">' + c + '</button>';
+      }
+      document.getElementById("cat-list").innerHTML = html;
+    }
+
+    function setCat(c) {
+      activeCat = c;
+      drawCats();
+      drawProducts();
+    }
+
+    function pickSize(id, s) {
+      sizes[id] = s;
+      drawProducts();
+    }
+
+    function drawProducts() {
+      var grid = document.getElementById("prod-grid");
+      var html = "";
+      for (var i = 0; i < items.length; i++) {
+        var p = items[i];
+        if (activeCat !== "All" && p.cat !== activeCat) continue;
+        var out = p.stock <= 0;
+        var curSize = sizes[p.id] || "M";
+        sizes[p.id] = curSize;
+
+        html += '<div class="card">';
+        html += '<div style="position:relative;">';
+        html += '<img src="' + p.img + '" alt="' + p.name + '" />';
+        if (out) html += '<span class="badge-out">SOLD OUT</span>';
+        html += '</div>';
+        html += '<div class="card-body">';
+        html += '<div style="font-size:0.75rem; color:var(--olive); font-weight:600;">' + p.cat + '</div>';
+        html += '<h3 style="font-size:1rem;">' + p.name + '</h3>';
+        html += '<div style="font-weight:700;">₹' + p.price + '</div>';
+        if (!out) {
+          html += '<div class="sizes">';
+          var szList = ["S", "M", "L", "XL"];
+          for (var j = 0; j < szList.length; j++) {
+            var s = szList[j];
+            html += '<button class="sz ' + (curSize === s ? 'sel' : '') + '" onclick="pickSize(' + p.id + ',\'' + s + '\')">' + s + '</button>';
+          }
+          html += '</div>';
+          html += '<button class="btn btn-brown" style="margin-top:auto;" onclick="addBag(' + p.id + ')">Add to Bag</button>';
+        } else {
+          html += '<button class="btn" disabled style="background:#ccc; color:#666; margin-top:auto;">Out of Stock</button>';
+        }
+        html += '</div></div>';
+      }
+      grid.innerHTML = html;
+    }
+
+    function addBag(id) {
+      var p = items.find(function(x) { return x.id === id; });
+      if (!p || p.stock <= 0) return;
+      var s = sizes[id] || "M";
+      bag.push({ id: p.id, name: p.name, price: p.price, size: s });
+      updateBag();
+      openCart();
+    }
+
+    function removeBag(idx) {
+      bag.splice(idx, 1);
+      updateBag();
+    }
+
+    function updateBag() {
+      document.getElementById("bag-count").innerText = bag.length;
+      var total = 0;
+      var html = "";
+      for (var i = 0; i < bag.length; i++) {
+        total += bag[i].price;
+        html += '<div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--border);">';
+        html += '<span>' + bag[i].name + ' (' + bag[i].size + ') - ₹' + bag[i].price + '</span>';
+        html += '<button onclick="removeBag(' + i + ')" style="color:red; background:none; border:none; cursor:pointer;">X</button>';
+        html += '</div>';
+      }
+      document.getElementById("bag-items").innerHTML = html || "Bag is empty.";
+      document.getElementById("bag-total").innerText = total;
+    }
+
+    function openCart() { document.getElementById("cart-modal").style.display = "flex"; }
+    function closeCart() { document.getElementById("cart-modal").style.display = "none"; }
+
+    function sendWhatsApp() {
+      if (bag.length === 0) return alert("Bag is empty!");
+      var n = document.getElementById("c-name").value.trim();
+      var ph = document.getElementById("c-phone").value.trim();
+      var ad = document.getElementById("c-addr").value.trim();
+      if (!n || !ph || !ad) return alert("Please fill name, phone, and address.");
+
+      var total = 0;
+      var list = "";
+      for (var i = 0; i < bag.length; i++) {
+        var b = bag[i];
+        total += b.price;
+        list += "• " + b.name + " (" + b.size + ") - ₹" + b.price + "\n";
+        var prod = items.find(function(x) { return x.id === b.id; });
+        if (prod && prod.stock > 0) {
+          prod.stock -= 1;
+          prod.sold = (prod.sold || 0) + 1;
+        }
+      }
+      save();
+      drawProducts();
+
+      var msg = "*NEW ORDER — ROVEN*\nName: " + n + "\nPhone: " + ph + "\nAddress: " + ad + "\n\n*Items:*\n" + list + "\n*Total: ₹" + total + "*";
+      bag = [];
+      updateBag();
+      closeCart();
+      window.open("https://wa.me/" + WHATSAPP_NO + "?text=" + encodeURIComponent(msg), "_blank");
+    }
+
+    /* Owner Functions */
+    function openOwner() { document.getElementById("owner-modal").style.display = "flex"; }
+    function closeOwner() { document.getElementById("owner-modal").style.display = "none"; }
+
+    function checkOwner() {
+      var val = document.getElementById("o-pass").value;
+      if (val === OWNER_PASS) {
+        document.getElementById("login-box").style.display = "none";
+        document.getElementById("dash-box").style.display = "block";
+        drawOwnerTable();
+      } else {
+        alert("Wrong Password!");
+      }
+    }
+
+    function drawOwnerTable() {
+      var html = "";
+      for (var i = 0; i < items.length; i++) {
+        var p = items[i];
+        html += '<tr>';
+        html += '<td>' + p.name + '</td>';
+        html += '<td>₹' + p.price + '</td>';
+        html += '<td>' + (p.sold || 0) + '</td>';
+        html += '<td><strong>' + p.stock + '</strong></td>';
+        html += '<td>';
+        html += '<button onclick="chgStock(' + p.id + ',-1)">-</button> ';
+        html += '<button onclick="chgStock(' + p.id + ',1)">+</button> ';
+        html += '<button onclick="delItem(' + p.id + ')" style="color:red;">Del</button>';
+        html += '</td></tr>';
+      }
+      document.getElementById("owner-table").innerHTML = html;
+    }
+
+    function chgStock(id, d) {
+      var p = items.find(function(x) { return x.id === id; });
+      if (p) {
+        p.stock = Math.max(0, p.stock + d);
+        save();
+        drawProducts();
+        drawOwnerTable();
+      }
+    }
+
+    function delItem(id) {
+      items = items.filter(function(x) { return x.id !== id; });
+      save();
+      drawProducts();
+      drawOwnerTable();
+    }
+
+    function createProduct() {
+      var name = document.getElementById("p-name").value.trim();
+      var cat = document.getElementById("p-cat").value;
+      var price = parseInt(document.getElementById("p-price").value, 10);
+      var stock = parseInt(document.getElementById("p-stock").value, 10);
+      var img = document.getElementById("p-img").value.trim() || "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?auto=format&fit=crop&w=600&q=80";
+
+      if (!name || isNaN(price) || isNaN(stock)) return alert("Fill name, price and stock!");
+
+      items.push({ id: Date.now(), name: name, cat: cat, price: price, stock: stock, sold: 0, img: img });
+      save();
+      drawProducts();
+      drawOwnerTable();
+
+      document.getElementById("p-name").value = "";
+      document.getElementById("p-price").value = "";
+      document.getElementById("p-stock").value = "";
+      document.getElementById("p-img").value = "";
+    }
+
+    drawCats();
+    drawProducts();
+    updateBag();
+  </script>
+</body>
+</html>
