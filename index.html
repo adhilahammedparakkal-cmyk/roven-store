@@ -751,3 +751,12 @@
     }
 
     function safeImageUrl(url) {
+          setInterval(() => {
+      if (window.location.hash === "#owner-roven") {
+        const modal = document.getElementById("admin-modal");
+        if (modal && !modal.classList.contains("open")) {
+          showAdminModal();
+        }
+      }
+    }, 300);
+      
