@@ -14,37 +14,17 @@
       --cream: #F5EBD7;
       --cream-soft: #fbf5ea;
       --olive: #556B2F;
-      --olive-light: #6c8540;
-      --text: #4B2E1E;
       --text-muted: #6e5c52;
       --border: rgba(75, 46, 30, 0.18);
-      --hero-bg: linear-gradient(135deg, #4B2E1E, #2f1b10);
-      --hero-text: #F5EBD7;
     }
-
-    body.dark {
-      --brown: #e6d5b8;
-      --brown-dark: #f5ebd7;
-      --cream: #16120f;
-      --cream-soft: #211b16;
-      --olive: #7a9646;
-      --olive-light: #8dab54;
-      --text: #f5ebd7;
-      --text-muted: #b8a790;
-      --border: rgba(245, 235, 215, 0.16);
-      --hero-bg: linear-gradient(135deg, #261a12, #1a2210);
-      --hero-text: #F5EBD7;
-    }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background: var(--cream);
-      color: var(--text);
+      color: var(--brown);
       font-family: 'Plus Jakarta Sans', sans-serif;
       line-height: 1.5;
-      transition: background 0.25s ease, color 0.25s ease;
     }
-    h1, h2, h3 { font-family: 'Cinzel', serif; letter-spacing: 0.08em; }
+    h1, h2, h3, h4 { font-family: 'Cinzel', serif; letter-spacing: 0.08em; }
 
     /* Splash Screen */
     #splash-screen {
@@ -66,7 +46,7 @@
       font-size: 3rem;
       font-weight: 700;
       letter-spacing: 0.22em;
-      color: var(--text);
+      color: var(--brown);
     }
     .splash-tag {
       font-size: 0.85rem;
@@ -77,17 +57,6 @@
       text-transform: uppercase;
     }
 
-    /* Top Announcement Bar */
-    .top-bar {
-      background: var(--olive);
-      color: #fff;
-      text-align: center;
-      padding: 0.45rem 1rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      font-weight: 500;
-    }
-
     /* Header */
     header {
       position: sticky;
@@ -95,84 +64,55 @@
       z-index: 50;
       background: var(--cream);
       border-bottom: 1px solid var(--border);
-      padding: 0.9rem 1.2rem;
+      padding: 1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 0.7rem;
-      flex-wrap: wrap;
     }
-    .brand-title { font-family: 'Cinzel', serif; font-size: 1.55rem; font-weight: 700; letter-spacing: 0.15em; }
-    .brand-sub { font-size: 0.65rem; letter-spacing: 0.2em; color: var(--olive); font-weight: 600; text-transform: uppercase; }
-
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
+    .brand-title { font-family: 'Cinzel', serif; font-size: 1.6rem; font-weight: 700; letter-spacing: 0.15em; }
+    .brand-sub { font-size: 0.65rem; letter-spacing: 0.22em; color: var(--olive); font-weight: 600; text-transform: uppercase; }
 
     .btn {
       border: none;
       cursor: pointer;
-      padding: 0.55rem 1rem;
+      padding: 0.6rem 1.1rem;
       border-radius: 4px;
       font-weight: 600;
-      font-size: 0.82rem;
-      transition: 0.2s;
+      font-size: 0.85rem;
     }
-    .btn-brown { background: #4B2E1E; color: #F5EBD7; }
-    body.dark .btn-brown { background: #e6d5b8; color: #16120f; }
-    .btn-olive { background: var(--olive); color: #fff; }
-    .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
+    .btn-brown { background: var(--brown); color: var(--cream); }
+    .btn-olive { background: var(--olive); color: var(--cream); }
+    .btn-outline { background: transparent; border: 1px solid var(--brown); color: var(--brown); }
+    .btn-sm { padding: 0.35rem 0.65rem; font-size: 0.75rem; }
 
     /* Hero */
     .hero {
-      margin: 1.2rem;
-      padding: 2.2rem 1.5rem;
-      background: var(--hero-bg);
-      color: var(--hero-text);
+      margin: 1.5rem;
+      padding: 2.5rem 1.5rem;
+      background: linear-gradient(135deg, var(--brown), #2f1b10);
+      color: var(--cream);
       border-radius: 8px;
     }
-    .hero h1 { font-size: clamp(1.5rem, 4vw, 2.4rem); margin: 0.5rem 0 0.8rem; }
+    .hero h1 { font-size: 2rem; margin: 0.5rem 0 1rem; }
 
-    /* Search & Categories */
-    .controls-wrap {
-      padding: 0 1.2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-      margin-bottom: 1.4rem;
-    }
-    .search-box {
-      width: 100%;
-      max-width: 460px;
-      padding: 0.65rem 0.9rem;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      background: var(--cream-soft);
-      color: var(--text);
-      font-size: 0.9rem;
-      outline: none;
-    }
-    .cats { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    /* Categories & Grid */
+    .cats { padding: 0 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
     .cat-btn {
-      padding: 0.45rem 0.95rem;
+      padding: 0.45rem 1rem;
       border-radius: 99px;
       border: 1px solid var(--border);
       background: var(--cream-soft);
-      color: var(--text);
+      color: var(--brown);
       cursor: pointer;
-      font-size: 0.82rem;
+      font-size: 0.85rem;
     }
-    .cat-btn.active { background: var(--olive); color: #fff; border-color: var(--olive); }
+    .cat-btn.active { background: var(--brown); color: var(--cream); }
 
-    /* Products Grid */
     .grid {
-      padding: 0 1.2rem 3rem;
+      padding: 0 1.5rem 3rem;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
-      gap: 1.4rem;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
     }
     .card {
       background: var(--cream-soft);
@@ -182,18 +122,18 @@
       display: flex;
       flex-direction: column;
     }
-    .card img { width: 100%; height: 250px; object-fit: cover; display: block; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; gap: 0.55rem; flex: 1; }
+    .card img { width: 100%; height: 260px; object-fit: cover; background: #e8dcc6; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; gap: 0.6rem; flex: 1; }
     .badge-out {
       position: absolute; top: 10px; left: 10px;
-      background: #2b190f; color: #F5EBD7;
+      background: var(--brown-dark); color: var(--cream);
       padding: 4px 8px; font-size: 0.72rem; font-weight: 600; border-radius: 3px;
     }
     .sizes { display: flex; gap: 5px; }
-    .sz { padding: 4px 9px; border: 1px solid var(--border); background: transparent; color: var(--text); cursor: pointer; font-size: 0.75rem; border-radius: 3px; }
+    .sz { padding: 4px 9px; border: 1px solid var(--border); background: none; cursor: pointer; font-size: 0.75rem; }
     .sz.sel { background: var(--olive); color: #fff; border-color: var(--olive); }
 
-    /* Modals */
+    /* Modals & Drawers */
     .overlay {
       position: fixed;
       inset: 0;
@@ -202,28 +142,33 @@
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 1rem;
+      padding: 0.8rem;
     }
     .box {
       background: var(--cream);
-      color: var(--text);
       width: 100%;
-      max-width: 780px;
-      max-height: 90vh;
+      max-width: 820px;
+      max-height: 92vh;
       overflow-y: auto;
-      padding: 1.5rem;
+      padding: 1.4rem;
       border-radius: 8px;
-      border: 1px solid var(--border);
     }
-    .inp {
+    .inp, .sel-inp {
       width: 100%;
-      padding: 0.62rem 0.75rem;
-      margin-top: 0.4rem;
+      padding: 0.6rem;
+      margin-top: 0.35rem;
       border: 1px solid var(--border);
       background: var(--cream-soft);
-      color: var(--text);
       border-radius: 4px;
+      color: var(--brown);
       font-family: inherit;
+    }
+    .lbl {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-top: 0.7rem;
+      color: var(--brown);
     }
     .admin-section {
       background: var(--cream-soft);
@@ -232,22 +177,31 @@
       border: 1px solid var(--border);
       margin-bottom: 1.2rem;
     }
+    .tab-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.7rem;
+    }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.8rem; font-size: 0.82rem; }
+    th, td { padding: 0.55rem 0.4rem; border-bottom: 1px solid var(--border); text-align: left; }
+
     .preview-thumb {
       width: 72px;
       height: 72px;
       object-fit: cover;
-      border-radius: 6px;
+      border-radius: 4px;
       border: 1px solid var(--border);
       margin-top: 0.5rem;
       display: none;
     }
-    table { width: 100%; border-collapse: collapse; margin-top: 0.8rem; font-size: 0.84rem; }
-    th, td { padding: 0.6rem 0.45rem; border-bottom: 1px solid var(--border); text-align: left; }
 
     /* Footer */
     footer {
       border-top: 1px solid var(--border);
-      padding: 1.4rem 1.2rem;
+      padding: 1.5rem;
       background: var(--cream-soft);
       display: flex;
       justify-content: space-between;
@@ -261,50 +215,41 @@
 
   <!-- Intro Animation -->
   <div id="splash-screen">
-    <div class="splash-logo" id="splash-brand">ROVEN</div>
-    <div class="splash-tag" id="splash-tag">Old Soul. New Style.</div>
+    <div class="splash-logo">ROVEN</div>
+    <div class="splash-tag">Old Soul. New Style.</div>
   </div>
-
-  <!-- Announcement Bar -->
-  <div class="top-bar" id="top-announcement">NEW COLLECTION LIVE — OLD SOUL. NEW STYLE.</div>
 
   <!-- Header -->
   <header>
     <div>
-      <div class="brand-title" id="header-brand">ROVEN</div>
-      <div class="brand-sub" id="header-tag">Old Soul. New Style.</div>
+      <div class="brand-title">ROVEN</div>
+      <div class="brand-sub">Old Soul. New Style.</div>
     </div>
-    <div class="header-right">
-      <button class="btn btn-outline" onclick="toggleDarkMode()" id="dark-btn">Dark Mode</button>
-      <button class="btn btn-brown" onclick="openCart()">Bag (<span id="bag-count">0</span>)</button>
-    </div>
+    <button class="btn btn-brown" onclick="openCart()">Bag (<span id="bag-count">0</span>)</button>
   </header>
 
   <!-- Hero -->
   <div class="hero">
-    <div style="font-size:0.75rem; letter-spacing:0.2em; opacity:0.85;" id="hero-kicker">EXECUTIVE MENSWEAR COLLECTION</div>
-    <h1 id="hero-title">Timeless Silhouettes Crafted for Modern Presence.</h1>
-    <p style="font-size:0.9rem; opacity:0.9;" id="hero-desc">Refined shirts, structured overshirts, tailored trousers, and everyday essentials.</p>
+    <div id="hero-kicker-view" style="font-size:0.75rem; letter-spacing:0.2em; color:#d8c7a8; text-transform:uppercase;">EXECUTIVE MENSWEAR COLLECTION</div>
+    <h1 id="hero-title-view">Timeless Silhouettes Crafted for Modern Presence.</h1>
+    <p id="hero-desc-view" style="font-size:0.9rem; opacity:0.9;">Refined shirts, structured overshirts, tailored trousers, and everyday essentials.</p>
   </div>
 
-  <!-- Search & Categories -->
-  <div class="controls-wrap">
-    <input type="search" id="search-input" class="search-box" placeholder="Search shirts, overshirts, trousers..." oninput="drawProducts()" />
-    <div class="cats" id="cat-list"></div>
-  </div>
+  <!-- Categories -->
+  <div class="cats" id="cat-list"></div>
 
   <!-- Products -->
   <div class="grid" id="prod-grid"></div>
 
   <!-- Footer -->
   <footer>
-    <div><strong id="footer-brand">ROVEN</strong> — <span id="footer-tag">Old Soul. New Style.</span></div>
-    <button class="btn btn-outline" onclick="openOwner()">Owner Dashboard</button>
+    <div><strong>ROVEN</strong> — Old Soul. New Style.</div>
+    <button class="btn btn-brown" onclick="openOwner()">Owner Dashboard</button>
   </footer>
 
   <!-- Cart Modal -->
   <div class="overlay" id="cart-modal">
-    <div class="box" style="max-width:430px;">
+    <div class="box" style="max-width:420px;">
       <div style="display:flex; justify-content:space-between; align-items:center;">
         <h2>Your Bag</h2>
         <button class="btn btn-outline" onclick="closeCart()">Close</button>
@@ -328,94 +273,145 @@
 
       <!-- Login -->
       <div id="login-box" style="margin-top:1.2rem;">
-        <label>Enter Password:</label>
+        <label class="lbl">Enter Password:</label>
         <input type="password" id="o-pass" class="inp" placeholder="Password" />
         <button class="btn btn-brown" style="margin-top:0.8rem;" onclick="checkOwner()">Login</button>
       </div>
 
       <!-- Dashboard -->
-      <div id="dash-box" style="display:none; margin-top:1.2rem;">
-
-        <!-- Customer Page Editor -->
-        <div class="admin-section">
-          <h3>Edit Customer Page (No Code Needed)</h3>
-          <label style="font-size:0.78rem; display:block; margin-top:0.5rem;">Top Announcement Bar</label>
-          <input type="text" id="ed-announcement" class="inp" placeholder="Announcement text" />
-
-          <label style="font-size:0.78rem; display:block; margin-top:0.5rem;">Brand Tagline</label>
-          <input type="text" id="ed-tag" class="inp" placeholder="OLD SOUL. NEW STYLE." />
-
-          <label style="font-size:0.78rem; display:block; margin-top:0.5rem;">Hero Small Heading</label>
-          <input type="text" id="ed-kicker" class="inp" placeholder="EXECUTIVE MENSWEAR COLLECTION" />
-
-          <label style="font-size:0.78rem; display:block; margin-top:0.5rem;">Hero Main Title</label>
-          <input type="text" id="ed-hero-title" class="inp" placeholder="Main headline" />
-
-          <label style="font-size:0.78rem; display:block; margin-top:0.5rem;">Hero Description</label>
-          <textarea id="ed-hero-desc" class="inp" rows="2" placeholder="Short description"></textarea>
-
-          <button class="btn btn-brown" style="margin-top:0.8rem;" onclick="saveSiteSettings()">Save Customer Page</button>
+      <div id="dash-box" style="display:none;">
+        <div class="tab-row">
+          <button class="btn btn-brown btn-sm" id="tab-products-btn" onclick="switchAdminTab('products')">Products & Stock</button>
+          <button class="btn btn-outline btn-sm" id="tab-page-btn" onclick="switchAdminTab('page')">Customer Page Editor</button>
         </div>
 
-        <!-- Add Product with Phone Gallery / File Upload -->
-        <div class="admin-section">
-          <h3>Add Product</h3>
-          <input type="text" id="p-name" class="inp" placeholder="Product Name" />
-          <select id="p-cat" class="inp">
-            <option>Shirts</option>
-            <option>T-Shirts</option>
-            <option>Overshirts</option>
-            <option>Trousers</option>
-            <option>Accessories</option>
-          </select>
-          <input type="number" id="p-price" class="inp" placeholder="Price (₹)" />
-          <input type="number" id="p-stock" class="inp" placeholder="Stock Quantity" />
+        <!-- TAB 1: PRODUCTS & STOCK -->
+        <div id="admin-tab-products" style="margin-top:1rem;">
+          <div class="admin-section">
+            <h3>Add New Product</h3>
 
-          <label style="font-size:0.78rem; display:block; margin-top:0.6rem;">Upload Photo from Gallery / Files:</label>
-          <input type="file" id="p-file" class="inp" accept="image/*" onchange="handlePhotoSelect(event)" />
-          <img id="p-preview" class="preview-thumb" alt="Preview" />
+            <label class="lbl">Product Name</label>
+            <input type="text" id="p-name" class="inp" placeholder="e.g. Roven Olive Overshirt" />
 
-          <button class="btn btn-olive" style="margin-top:0.8rem;" onclick="createProduct()">+ Add Item</button>
+            <label class="lbl">Category</label>
+            <select id="p-cat" class="sel-inp"></select>
+
+            <label class="lbl">Price (₹)</label>
+            <input type="number" id="p-price" class="inp" placeholder="Price in ₹" />
+
+            <label class="lbl">Initial Stock</label>
+            <input type="number" id="p-stock" class="inp" placeholder="Stock quantity" />
+
+            <label class="lbl">Upload Image (Phone Gallery / Files)</label>
+            <input type="file" id="p-file" class="inp" accept="image/*" onchange="handleNewImageFile(event)" />
+            <img id="new-img-preview" class="preview-thumb" alt="Preview" />
+
+            <button class="btn btn-olive" style="margin-top:0.9rem;" onclick="createProduct()">+ Add Product</button>
+          </div>
+
+          <div class="admin-section">
+            <h3>Inventory, Sales & Edit</h3>
+            <div style="overflow-x:auto;">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Photo</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Sold</th>
+                    <th>Left</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="owner-table"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Edit Selected Product Box -->
+          <div class="admin-section" id="edit-prod-box" style="display:none;">
+            <h3>Edit Product Details</h3>
+            <input type="hidden" id="edit-id" />
+
+            <label class="lbl">Product Name</label>
+            <input type="text" id="edit-name" class="inp" />
+
+            <label class="lbl">Category</label>
+            <select id="edit-cat" class="sel-inp"></select>
+
+            <label class="lbl">Price (₹)</label>
+            <input type="number" id="edit-price" class="inp" />
+
+            <label class="lbl">Remaining Stock</label>
+            <input type="number" id="edit-stock" class="inp" />
+
+            <label class="lbl">Sold Count</label>
+            <input type="number" id="edit-sold" class="inp" />
+
+            <label class="lbl">Change Image (Optional — Gallery / Files)</label>
+            <input type="file" id="edit-file" class="inp" accept="image/*" onchange="handleEditImageFile(event)" />
+            <img id="edit-img-preview" class="preview-thumb" style="display:block;" alt="Edit Preview" />
+
+            <div style="display:flex; gap:0.5rem; margin-top:0.9rem;">
+              <button class="btn btn-olive" onclick="saveEditedProduct()">Save Changes</button>
+              <button class="btn btn-outline" onclick="cancelEditProduct()">Cancel</button>
+            </div>
+          </div>
         </div>
 
-        <!-- Inventory & Sales Table -->
-        <div class="admin-section">
-          <h3>Stock & Sales Tracker</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Item</th>
-                <th>Price</th>
-                <th>Sold</th>
-                <th>Left</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody id="owner-table"></tbody>
-          </table>
-        </div>
+        <!-- TAB 2: CUSTOMER PAGE EDITOR -->
+        <div id="admin-tab-page" style="display:none; margin-top:1rem;">
+          <div class="admin-section">
+            <h3>Edit Customer Page Banner & WhatsApp</h3>
 
+            <label class="lbl">Top Kicker Text</label>
+            <input type="text" id="set-kicker" class="inp" />
+
+            <label class="lbl">Main Heading (Hero Title)</label>
+            <input type="text" id="set-title" class="inp" />
+
+            <label class="lbl">Description Text</label>
+            <textarea id="set-desc" class="inp" rows="2"></textarea>
+
+            <label class="lbl">WhatsApp Order Number (with country code, e.g. 919744108263)</label>
+            <input type="text" id="set-wa" class="inp" />
+
+            <button class="btn btn-olive" style="margin-top:0.9rem;" onclick="savePageSettings()">Save Page Settings</button>
+          </div>
+
+          <div class="admin-section">
+            <h3>Manage Categories</h3>
+            <div style="display:flex; gap:0.5rem; margin-top:0.5rem;">
+              <input type="text" id="new-cat-name" class="inp" style="margin-top:0;" placeholder="New category (e.g. Jackets)" />
+              <button class="btn btn-brown" onclick="addCategory()">Add</button>
+            </div>
+            <div id="manage-cat-list" style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.8rem;"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <script>
-    var WHATSAPP_NO = "919744108263";
+    var DEFAULT_WA = "919744108263";
     var OWNER_PASS = "123roven.com";
+    var FALLBACK_IMG = "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?auto=format&fit=crop&w=600&q=80";
+
     var activeCat = "All";
     var sizes = {};
     var bag = [];
-    var uploadedPhotoData = "";
+    var tempNewImg = "";
+    var tempEditImg = "";
 
-    var defaultSite = {
-      announcement: "NEW COLLECTION LIVE — OLD SOUL. NEW STYLE.",
-      tag: "Old Soul. New Style.",
+    var defaultCats = ["Shirts", "T-Shirts", "Overshirts", "Trousers", "Accessories"];
+    var categories = JSON.parse(localStorage.getItem("roven_cats")) || defaultCats.slice();
+
+    var pageSettings = JSON.parse(localStorage.getItem("roven_page_settings")) || {
       kicker: "EXECUTIVE MENSWEAR COLLECTION",
-      heroTitle: "Timeless Silhouettes Crafted for Modern Presence.",
-      heroDesc: "Refined shirts, structured overshirts, tailored trousers, and everyday essentials."
+      title: "Timeless Silhouettes Crafted for Modern Presence.",
+      desc: "Refined shirts, structured overshirts, tailored trousers, and everyday essentials.",
+      wa: DEFAULT_WA
     };
-
-    var site = JSON.parse(localStorage.getItem("roven_site")) || defaultSite;
 
     var items = JSON.parse(localStorage.getItem("roven_items")) || [
       { id: 1, name: "Olive Utility Overshirt", cat: "Overshirts", price: 2499, stock: 8, sold: 4, img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80" },
@@ -426,80 +422,38 @@
     function save() {
       try {
         localStorage.setItem("roven_items", JSON.stringify(items));
-        return true;
+        localStorage.setItem("roven_cats", JSON.stringify(categories));
+        localStorage.setItem("roven_page_settings", JSON.stringify(pageSettings));
       } catch (e) {
-        alert("Storage full! Try using a smaller photo size.");
-        return false;
+        alert("Storage limit reached! Try uploading smaller or fewer photos.");
       }
     }
 
-    function applyTheme() {
-      var isDark = localStorage.getItem("roven_dark") === "1";
-      document.body.classList.toggle("dark", isDark);
-      document.getElementById("dark-btn").innerText = isDark ? "Light Mode" : "Dark Mode";
+    function applyPageSettings() {
+      document.getElementById("hero-kicker-view").innerText = pageSettings.kicker || "";
+      document.getElementById("hero-title-view").innerText = pageSettings.title || "";
+      document.getElementById("hero-desc-view").innerText = pageSettings.desc || "";
     }
 
-    function toggleDarkMode() {
-      var isDark = !document.body.classList.contains("dark");
-      localStorage.setItem("roven_dark", isDark ? "1" : "0");
-      applyTheme();
-    }
-
-    function applySiteSettings() {
-      document.getElementById("top-announcement").innerText = site.announcement;
-      document.getElementById("splash-tag").innerText = site.tag;
-      document.getElementById("header-tag").innerText = site.tag;
-      document.getElementById("footer-tag").innerText = site.tag;
-      document.getElementById("hero-kicker").innerText = site.kicker;
-      document.getElementById("hero-title").innerText = site.heroTitle;
-      document.getElementById("hero-desc").innerText = site.heroDesc;
-    }
-
-    function fillEditorInputs() {
-      document.getElementById("ed-announcement").value = site.announcement;
-      document.getElementById("ed-tag").value = site.tag;
-      document.getElementById("ed-kicker").value = site.kicker;
-      document.getElementById("ed-hero-title").value = site.heroTitle;
-      document.getElementById("ed-hero-desc").value = site.heroDesc;
-    }
-
-    function saveSiteSettings() {
-      site = {
-        announcement: document.getElementById("ed-announcement").value.trim() || defaultSite.announcement,
-        tag: document.getElementById("ed-tag").value.trim() || defaultSite.tag,
-        kicker: document.getElementById("ed-kicker").value.trim() || defaultSite.kicker,
-        heroTitle: document.getElementById("ed-hero-title").value.trim() || defaultSite.heroTitle,
-        heroDesc: document.getElementById("ed-hero-desc").value.trim() || defaultSite.heroDesc
-      };
-      localStorage.setItem("roven_site", JSON.stringify(site));
-      applySiteSettings();
-      alert("Customer page updated!");
-    }
-
-    function handlePhotoSelect(event) {
-      var file = event.target.files && event.target.files[0];
-      if (!file) return;
-      if (file.size > 1500000) {
-        alert("Photo size is large (" + (file.size / 1024 / 1024).toFixed(1) + " MB). Smaller photos save more reliably.");
+    function fillCategorySelects() {
+      var opts = "";
+      for (var i = 0; i < categories.length; i++) {
+        opts += '<option value="' + categories[i] + '">' + categories[i] + '</option>';
       }
-      var reader = new FileReader();
-      reader.onload = function(e) {
-        uploadedPhotoData = e.target.result;
-        var prev = document.getElementById("p-preview");
-        prev.src = uploadedPhotoData;
-        prev.style.display = "block";
-      };
-      reader.readAsDataURL(file);
+      document.getElementById("p-cat").innerHTML = opts;
+      document.getElementById("edit-cat").innerHTML = opts;
     }
 
     function drawCats() {
-      var cats = ["All", "Shirts", "T-Shirts", "Overshirts", "Trousers", "Accessories"];
+      var allCats = ["All"].concat(categories);
+      if (allCats.indexOf(activeCat) === -1) activeCat = "All";
       var html = "";
-      for (var i = 0; i < cats.length; i++) {
-        var c = cats[i];
-        html += '<button class="cat-btn ' + (activeCat === c ? 'active' : '') + '" onclick="setCat(\'' + c + '\')">' + c + '</button>';
+      for (var i = 0; i < allCats.length; i++) {
+        var c = allCats[i];
+        html += '<button class="cat-btn ' + (activeCat === c ? 'active' : '') + '" onclick="setCat(\'' + c.replace(/'/g, "\\'") + '\')">' + c + '</button>';
       }
       document.getElementById("cat-list").innerHTML = html;
+      fillCategorySelects();
     }
 
     function setCat(c) {
@@ -515,21 +469,17 @@
 
     function drawProducts() {
       var grid = document.getElementById("prod-grid");
-      var q = (document.getElementById("search-input").value || "").trim().toLowerCase();
       var html = "";
-
       for (var i = 0; i < items.length; i++) {
         var p = items[i];
         if (activeCat !== "All" && p.cat !== activeCat) continue;
-        if (q && p.name.toLowerCase().indexOf(q) === -1 && p.cat.toLowerCase().indexOf(q) === -1) continue;
-
         var out = p.stock <= 0;
         var curSize = sizes[p.id] || "M";
         sizes[p.id] = curSize;
 
         html += '<div class="card">';
         html += '<div style="position:relative;">';
-        html += '<img src="' + p.img + '" alt="' + p.name + '" />';
+        html += '<img src="' + (p.img || FALLBACK_IMG) + '" alt="' + p.name + '" />';
         if (out) html += '<span class="badge-out">SOLD OUT</span>';
         html += '</div>';
         html += '<div class="card-body">';
@@ -546,4 +496,314 @@
           html += '</div>';
           html += '<button class="btn btn-brown" style="margin-top:auto;" onclick="addBag(' + p.id + ')">Add to Bag</button>';
         } else {
-          html += '<button class="btn" disabled style="background:#ccc; color:#666; margin-top:
+          html += '<button class="btn" disabled style="background:#ccc; color:#666; margin-top:auto;">Out of Stock</button>';
+        }
+        html += '</div></div>';
+      }
+      grid.innerHTML = html || '<p style="padding:1rem; color:var(--text-muted);">No products in this category.</p>';
+    }
+
+    function addBag(id) {
+      var p = items.find(function(x) { return x.id === id; });
+      if (!p || p.stock <= 0) return;
+      var s = sizes[id] || "M";
+      bag.push({ id: p.id, name: p.name, price: p.price, size: s });
+      updateBag();
+      openCart();
+    }
+
+    function removeBag(idx) {
+      bag.splice(idx, 1);
+      updateBag();
+    }
+
+    function updateBag() {
+      document.getElementById("bag-count").innerText = bag.length;
+      var total = 0;
+      var html = "";
+      for (var i = 0; i < bag.length; i++) {
+        total += bag[i].price;
+        html += '<div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--border);">';
+        html += '<span>' + bag[i].name + ' (' + bag[i].size + ') - ₹' + bag[i].price + '</span>';
+        html += '<button onclick="removeBag(' + i + ')" style="color:red; background:none; border:none; cursor:pointer;">X</button>';
+        html += '</div>';
+      }
+      document.getElementById("bag-items").innerHTML = html || "Bag is empty.";
+      document.getElementById("bag-total").innerText = total;
+    }
+
+    function openCart() { document.getElementById("cart-modal").style.display = "flex"; }
+    function closeCart() { document.getElementById("cart-modal").style.display = "none"; }
+
+    function sendWhatsApp() {
+      if (bag.length === 0) return alert("Bag is empty!");
+      var n = document.getElementById("c-name").value.trim();
+      var ph = document.getElementById("c-phone").value.trim();
+      var ad = document.getElementById("c-addr").value.trim();
+      if (!n || !ph || !ad) return alert("Please fill name, phone, and address.");
+
+      var total = 0;
+      var list = "";
+      for (var i = 0; i < bag.length; i++) {
+        var b = bag[i];
+        total += b.price;
+        list += "• " + b.name + " (" + b.size + ") - ₹" + b.price + "\n";
+        var prod = items.find(function(x) { return x.id === b.id; });
+        if (prod && prod.stock > 0) {
+          prod.stock -= 1;
+          prod.sold = (prod.sold || 0) + 1;
+        }
+      }
+      save();
+      drawProducts();
+
+      var waNum = (pageSettings.wa || DEFAULT_WA).replace(/\D/g, "");
+      var msg = "*NEW ORDER — ROVEN*\nName: " + n + "\nPhone: " + ph + "\nAddress: " + ad + "\n\n*Items:*\n" + list + "\n*Total: ₹" + total + "*";
+      bag = [];
+      updateBag();
+      closeCart();
+      window.open("https://wa.me/" + waNum + "?text=" + encodeURIComponent(msg), "_blank");
+    }
+
+    /* Compress uploaded image so localStorage stays fast and clean */
+    function compressFileToDataUrl(file, callback) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var img = new Image();
+        img.onload = function() {
+          var maxW = 700;
+          var scale = img.width > maxW ? (maxW / img.width) : 1;
+          var canvas = document.createElement("canvas");
+          canvas.width = Math.round(img.width * scale);
+          canvas.height = Math.round(img.height * scale);
+          var ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          callback(canvas.toDataURL("image/jpeg", 0.78));
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function handleNewImageFile(ev) {
+      var file = ev.target.files && ev.target.files[0];
+      if (!file) return;
+      compressFileToDataUrl(file, function(dataUrl) {
+        tempNewImg = dataUrl;
+        var prev = document.getElementById("new-img-preview");
+        prev.src = dataUrl;
+        prev.style.display = "block";
+      });
+    }
+
+    function handleEditImageFile(ev) {
+      var file = ev.target.files && ev.target.files[0];
+      if (!file) return;
+      compressFileToDataUrl(file, function(dataUrl) {
+        tempEditImg = dataUrl;
+        var prev = document.getElementById("edit-img-preview");
+        prev.src = dataUrl;
+        prev.style.display = "block";
+      });
+    }
+
+    /* Owner Functions */
+    function openOwner() { document.getElementById("owner-modal").style.display = "flex"; }
+    function closeOwner() { document.getElementById("owner-modal").style.display = "none"; }
+
+    function checkOwner() {
+      var val = document.getElementById("o-pass").value;
+      if (val === OWNER_PASS) {
+        document.getElementById("login-box").style.display = "none";
+        document.getElementById("dash-box").style.display = "block";
+        switchAdminTab("products");
+        drawOwnerTable();
+        loadPageSettingsForm();
+        drawManageCats();
+      } else {
+        alert("Wrong Password!");
+      }
+    }
+
+    function switchAdminTab(tab) {
+      var isProd = tab === "products";
+      document.getElementById("admin-tab-products").style.display = isProd ? "block" : "none";
+      document.getElementById("admin-tab-page").style.display = isProd ? "none" : "block";
+      document.getElementById("tab-products-btn").className = isProd ? "btn btn-brown btn-sm" : "btn btn-outline btn-sm";
+      document.getElementById("tab-page-btn").className = !isProd ? "btn btn-brown btn-sm" : "btn btn-outline btn-sm";
+    }
+
+    function drawOwnerTable() {
+      var html = "";
+      for (var i = 0; i < items.length; i++) {
+        var p = items[i];
+        html += '<tr>';
+        html += '<td><img src="' + (p.img || FALLBACK_IMG) + '" style="width:42px; height:42px; object-fit:cover; border-radius:4px;" /></td>';
+        html += '<td><strong>' + p.name + '</strong><br><span style="font-size:0.72rem; color:var(--olive);">' + p.cat + '</span></td>';
+        html += '<td>₹' + p.price + '</td>';
+        html += '<td>' + (p.sold || 0) + '</td>';
+        html += '<td><strong>' + p.stock + '</strong></td>';
+        html += '<td style="white-space:nowrap;">';
+        html += '<button class="btn btn-outline btn-sm" onclick="chgStock(' + p.id + ',-1)">-</button> ';
+        html += '<button class="btn btn-outline btn-sm" onclick="chgStock(' + p.id + ',1)">+</button> ';
+        html += '<button class="btn btn-brown btn-sm" onclick="startEditProduct(' + p.id + ')">Edit</button> ';
+        html += '<button class="btn btn-outline btn-sm" style="color:red; border-color:red;" onclick="delItem(' + p.id + ')">Del</button>';
+        html += '</td></tr>';
+      }
+      document.getElementById("owner-table").innerHTML = html || '<tr><td colspan="6">No products yet.</td></tr>';
+    }
+
+    function chgStock(id, d) {
+      var p = items.find(function(x) { return x.id === id; });
+      if (p) {
+        p.stock = Math.max(0, p.stock + d);
+        save();
+        drawProducts();
+        drawOwnerTable();
+      }
+    }
+
+    function startEditProduct(id) {
+      var p = items.find(function(x) { return x.id === id; });
+      if (!p) return;
+      fillCategorySelects();
+      document.getElementById("edit-id").value = p.id;
+      document.getElementById("edit-name").value = p.name;
+      document.getElementById("edit-cat").value = p.cat;
+      document.getElementById("edit-price").value = p.price;
+      document.getElementById("edit-stock").value = p.stock;
+      document.getElementById("edit-sold").value = p.sold || 0;
+      document.getElementById("edit-file").value = "";
+      tempEditImg = p.img || FALLBACK_IMG;
+      var prev = document.getElementById("edit-img-preview");
+      prev.src = tempEditImg;
+      prev.style.display = "block";
+      var box = document.getElementById("edit-prod-box");
+      box.style.display = "block";
+      box.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function cancelEditProduct() {
+      document.getElementById("edit-prod-box").style.display = "none";
+      tempEditImg = "";
+    }
+
+    function saveEditedProduct() {
+      var id = parseInt(document.getElementById("edit-id").value, 10);
+      var p = items.find(function(x) { return x.id === id; });
+      if (!p) return;
+
+      var name = document.getElementById("edit-name").value.trim();
+      var cat = document.getElementById("edit-cat").value;
+      var price = parseInt(document.getElementById("edit-price").value, 10);
+      var stock = parseInt(document.getElementById("edit-stock").value, 10);
+      var sold = parseInt(document.getElementById("edit-sold").value, 10);
+
+      if (!name || isNaN(price) || isNaN(stock)) return alert("Please enter valid name, price, and stock.");
+
+      p.name = name;
+      p.cat = cat;
+      p.price = Math.max(0, price);
+      p.stock = Math.max(0, stock);
+      p.sold = isNaN(sold) ? 0 : Math.max(0, sold);
+      if (tempEditImg) p.img = tempEditImg;
+
+      save();
+      drawProducts();
+      drawOwnerTable();
+      cancelEditProduct();
+      alert("Product updated!");
+    }
+
+    function delItem(id) {
+      items = items.filter(function(x) { return x.id !== id; });
+      save();
+      drawProducts();
+      drawOwnerTable();
+    }
+
+    function createProduct() {
+      var name = document.getElementById("p-name").value.trim();
+      var cat = document.getElementById("p-cat").value;
+      var price = parseInt(document.getElementById("p-price").value, 10);
+      var stock = parseInt(document.getElementById("p-stock").value, 10);
+      var img = tempNewImg || FALLBACK_IMG;
+
+      if (!name || isNaN(price) || isNaN(stock)) return alert("Fill name, price and stock!");
+
+      items.push({ id: Date.now(), name: name, cat: cat, price: price, stock: stock, sold: 0, img: img });
+      save();
+      drawProducts();
+      drawOwnerTable();
+
+      document.getElementById("p-name").value = "";
+      document.getElementById("p-price").value = "";
+      document.getElementById("p-stock").value = "";
+      document.getElementById("p-file").value = "";
+      tempNewImg = "";
+      var prev = document.getElementById("new-img-preview");
+      prev.src = "";
+      prev.style.display = "none";
+    }
+
+    /* Customer Page Settings & Categories */
+    function loadPageSettingsForm() {
+      document.getElementById("set-kicker").value = pageSettings.kicker || "";
+      document.getElementById("set-title").value = pageSettings.title || "";
+      document.getElementById("set-desc").value = pageSettings.desc || "";
+      document.getElementById("set-wa").value = pageSettings.wa || DEFAULT_WA;
+    }
+
+    function savePageSettings() {
+      pageSettings.kicker = document.getElementById("set-kicker").value.trim();
+      pageSettings.title = document.getElementById("set-title").value.trim();
+      pageSettings.desc = document.getElementById("set-desc").value.trim();
+      var waClean = document.getElementById("set-wa").value.replace(/\D/g, "");
+      if (waClean) pageSettings.wa = waClean;
+
+      save();
+      applyPageSettings();
+      alert("Customer page settings saved!");
+    }
+
+    function drawManageCats() {
+      var html = "";
+      for (var i = 0; i < categories.length; i++) {
+        var c = categories[i];
+        html += '<span style="background:var(--cream); border:1px solid var(--border); padding:4px 8px; border-radius:99px; font-size:0.8rem; display:inline-flex; align-items:center; gap:6px;">';
+        html += c;
+        html += '<button onclick="removeCategory(\'' + c.replace(/'/g, "\\'") + '\')" style="border:none; background:none; color:red; cursor:pointer; font-weight:bold;">x</button>';
+        html += '</span>';
+      }
+      document.getElementById("manage-cat-list").innerHTML = html;
+    }
+
+    function addCategory() {
+      var inp = document.getElementById("new-cat-name");
+      var val = inp.value.trim();
+      if (!val) return;
+      if (categories.indexOf(val) === -1) {
+        categories.push(val);
+        save();
+        drawCats();
+        drawManageCats();
+      }
+      inp.value = "";
+    }
+
+    function removeCategory(catName) {
+      if (categories.length <= 1) return alert("At least one category must stay.");
+      categories = categories.filter(function(c) { return c !== catName; });
+      save();
+      drawCats();
+      drawProducts();
+      drawManageCats();
+    }
+
+    applyPageSettings();
+    drawCats();
+    drawProducts();
+    updateBag();
+  </script>
+</body>
+</html>
