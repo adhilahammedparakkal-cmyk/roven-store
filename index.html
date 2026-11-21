@@ -6,10 +6,6 @@
   <title>ROVEN — Old Soul. New Style.</title>
   <meta name="description" content="ROVEN — Old Soul. New Style. Executive menswear collection: shirts, t-shirts, overshirts, trousers, and accessories." />
   <link rel="canonical" href="https://roven.online/" />
-  <meta property="og:title" content="ROVEN — Old Soul. New Style." />
-  <meta property="og:description" content="Executive menswear crafted for modern presence." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://roven.online/" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -536,10 +532,18 @@
     }
 
     .admin-link {
-      display: none;
-      color: var(--text-muted);
+      color: var(--brown);
       text-decoration: underline;
-      font-size: 0.8rem;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 4px 8px;
+    }
+
+    .admin-link:hover {
+      color: var(--olive);
     }
   </style>
 </head>
@@ -562,7 +566,7 @@
         <span class="brand-sub">Old Soul. New Style.</span>
       </div>
       <div class="nav-actions">
-        <button class="cart-btn" onclick="toggleCart(true)">
+        <button type="button" class="cart-btn" onclick="toggleCart(true)">
           <span>Bag</span>
           <span class="cart-count" id="cart-count">0</span>
         </button>
@@ -596,7 +600,7 @@
         <strong>ROVEN</strong> — Old Soul. New Style.
       </div>
       <div>
-        <a href="#owner-roven" class="admin-link" id="open-admin-btn">Owner Dashboard</a>
+        <button type="button" class="admin-link" id="open-admin-btn">Owner Dashboard</button>
       </div>
     </div>
   </footer>
@@ -688,11 +692,9 @@
   <script>
     const OWNER_WHATSAPP = "919744108263";
     const ADMIN_PASSWORD = "123roven.com";
-    const OWNER_HASH = "#owner-roven";
 
     const CATEGORIES = ["All", "Shirts", "T-Shirts", "Overshirts", "Trousers", "Accessories"];
 
-    // Set to [] if you only want products that you add yourself
     const DEFAULT_PRODUCTS = [
       {
         id: 1,
@@ -751,12 +753,7 @@
     }
 
     function safeImageUrl(url) {
-          setInterval(() => {
-      if (window.location.hash === "#owner-roven") {
-        const modal = document.getElementById("admin-modal");
-        if (modal && !modal.classList.contains("open")) {
-          showAdminModal();
-        }
-      }
-    }, 300);
-      
+      const fallback = "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?auto=format&fit=crop&w=600&q=80";
+      if (!url) return fallback;
+      const trimmed = String(url).trim();
+      if (
